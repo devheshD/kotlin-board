@@ -1,19 +1,17 @@
 package com.board.app.controller.board
 
 import com.board.app.controller.board.model.BoardRequest
+import com.board.app.controller.board.model.BoardResponse
 import com.board.app.service.board.BoardService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-/**
- * @author Rasung Ki
- */
 @RestController
-@RequestMapping("/board")
+@RequestMapping("board")
 class BoardController(
     private val boardService: BoardService,
 ) {
-    @PostMapping("/create")
+    @PostMapping("create")
     fun createBoard(
         @RequestBody boardRequest: BoardRequest
     ): ResponseEntity<Any> {
@@ -30,4 +28,16 @@ class BoardController(
             boardService.getAll()
         )
     }
+
+    @GetMapping("{id}")
+    fun getBoard(
+        @PathVariable("id") id: Long,
+    ): ResponseEntity<BoardResponse> {
+        return ResponseEntity.ok().body(
+            BoardResponse.by(
+                boardService.getBoardDetail(id)
+            )
+        )
+    }
+
 }

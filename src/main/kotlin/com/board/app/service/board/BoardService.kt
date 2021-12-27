@@ -4,10 +4,8 @@ import com.board.app.repository.board.BoardRepository
 import com.board.app.repository.board.entity.Board
 import com.board.app.service.board.model.BoardReqModel
 import org.springframework.stereotype.Service
+import java.util.*
 
-/**
- * @author Rasung Ki
- */
 @Service
 class BoardService(
     private val boardRepository: BoardRepository,
@@ -18,5 +16,9 @@ class BoardService(
 
     fun getAll(): List<Board> {
         return boardRepository.findAll()
+    }
+
+    fun getBoardDetail(id: Long): Board {
+        return boardRepository.findBoardById(id)
     }
 }

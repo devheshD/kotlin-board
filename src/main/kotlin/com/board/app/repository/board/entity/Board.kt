@@ -3,9 +3,6 @@ package com.board.app.repository.board.entity
 import java.time.LocalDateTime
 import javax.persistence.*
 
-/**
- * @author Rasung Ki
- */
 @Entity
 @Table(name = "board")
 class Board(

@@ -3,9 +3,6 @@ package com.board.app.service.board.model
 import com.board.app.repository.board.entity.Board
 import java.time.LocalDateTime
 
-/**
- * @author Rasung Ki
- */
 class BoardReqModel(
     val name: String,
     val title: String,
