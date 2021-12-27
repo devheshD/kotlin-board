@@ -23,4 +23,11 @@ class BoardController(
             )
         )
     }
+
+    @GetMapping("")
+    fun getAll(): ResponseEntity<Any> {
+        return ResponseEntity.ok().body(
+            boardService.getAll()
+        )
+    }
 }

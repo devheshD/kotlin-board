@@ -1,6 +1,7 @@
 package com.board.app.service.board
 
 import com.board.app.repository.board.BoardRepository
+import com.board.app.repository.board.entity.Board
 import com.board.app.service.board.model.BoardReqModel
 import org.springframework.stereotype.Service
 
@@ -13,5 +14,9 @@ class BoardService(
 ) {
     fun createBoard(boardModel: BoardReqModel) {
         boardRepository.save(boardModel.toEntity())
+    }
+
+    fun getAll(): List<Board> {
+        return boardRepository.findAll()
     }
 }
