@@ -2,8 +2,8 @@ package com.board.app.controller.board
 
 import com.board.app.controller.board.model.BoardRequest
 import com.board.app.service.board.BoardService
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.servlet.function.ServerResponse
 
 /**
  * @author Rasung Ki
@@ -16,10 +16,11 @@ class BoardController(
     @PostMapping("/create")
     fun createBoard(
         @RequestBody boardRequest: BoardRequest
-    ): ServerResponse {
-        return ServerResponse.ok().body(
-            boardService.createBoard(boardRequest.toModel())
+    ): ResponseEntity<Any> {
+        return ResponseEntity.ok().body(
+            boardService.createBoard(
+                boardRequest.toModel()
+            )
         )
     }
-
 }

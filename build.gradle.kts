@@ -24,12 +24,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-	implementation("com.fasterxml.jackson.core:jackson-databind:2.13.0")
-
-	//	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
-//	implementation("com.fasterxml.jackson.core:jackson-core:2.12.3")
 }
 
 tasks.withType<KotlinCompile> {
