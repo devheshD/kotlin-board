@@ -1,15 +1,18 @@
 package com.board.app.service.board
 
+import com.board.app.common.exception.BoardNotFoundException
 import com.board.app.repository.board.BoardRepository
 import com.board.app.repository.board.entity.Board
 import com.board.app.service.board.model.BoardReqModel
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class BoardService(
     private val boardRepository: BoardRepository,
 ) {
+    private val log = LoggerFactory.getLogger(javaClass)
+
     fun createBoard(boardModel: BoardReqModel) {
         boardRepository.save(boardModel.toEntity())
     }
@@ -19,6 +22,8 @@ class BoardService(
     }
 
     fun getBoardDetail(id: Long): Board {
-        return boardRepository.findBoardById(id)
+        return boardRepository.findBoardById(id).let {
+            it ?: throw BoardNotFoundException()
+        }
     }
 }

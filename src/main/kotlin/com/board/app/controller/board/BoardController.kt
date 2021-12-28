@@ -30,7 +30,7 @@ class BoardController(
     }
 
     @GetMapping("{id}")
-    fun getBoard(
+    fun getBoardDetail(
         @PathVariable("id") id: Long,
     ): ResponseEntity<BoardResponse> {
         return ResponseEntity.ok().body(
