@@ -26,4 +26,8 @@ class BoardService(
             it ?: throw BoardNotFoundException()
         }
     }
+
+    fun deleteBoard(id: Long) {
+        boardRepository.deleteBoardById(id)
+    }
 }

@@ -39,5 +39,12 @@ class BoardController(
             )
         )
     }
-
+    // Iterator : 리스트나 배열의 데이터를 순차적으로 접근해서 사용하기 위한 열거형 데이터 타입
+    @DeleteMapping("{id}")
+    fun deleteBoard(
+        @PathVariable("id") id: Long,
+    ): ResponseEntity<Any> {
+        boardService.deleteBoard(id)
+        return ResponseEntity.noContent().build()
+    }
 }
